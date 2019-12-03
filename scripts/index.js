@@ -235,13 +235,30 @@ function ticTacToe(playerSymbol, moveCoordX, moveCoordY) {
 
 // ticTacToe('X', 'R1', 'Y2');
 
+// const expenses = [
+//     1234.56,
+//     89.49,
+//     10,
+//     15.90,
+//     15,
+//     20
+// ];
+
 const expenses = [
     1234.56,
-    89.49,
-    10,
-    15.90,
-    15,
-    20
+    89.42,
+    9797.10,
+    88.88,
+    3.14,
+    30.99,
+    10.74,
+    0.99,
+    42.39,
+    19.24,
+    8.49,
+    21.30,
+    1.00,
+    30.00
 ];
 
 function sumExpenses(array) {
@@ -252,4 +269,82 @@ function sumExpenses(array) {
     return sum;
 }
  
-console.log(sumExpenses(expenses));
+// console.log(sumExpenses(expenses));
+
+function sumAboveTwenty(array ) {
+    let sum = 0;
+    for (let num of array){
+        if (num > 20) {
+
+             sum += num
+        }
+    }
+    return sum;
+}
+// console.log(sumAboveTwenty(expenses));
+
+function discount(array) {
+    let new_array = [];
+    for (let num of array) {
+        if (num > 100) {
+            new_array.push(num * 0.9);
+        } else {
+            new_array.push(num);
+        }
+    }
+    return new_array;
+}
+
+console.log(discount(expenses));
+
+// How to transform one array
+// into a corresponding array
+
+// #1. Write a function
+// that describes how to transform
+// one, single item.
+function giveDiscount(singleExpense) {
+    // debugger;
+    return singleExpense * 0.9;
+}
+
+// #2. Declare a variable to hold
+// the new array.
+
+let updatedExpenses = expenses.map(giveDiscount);
+// console.log(updatedExpenses);
+
+function onlyOverTwentyDollars(expenseArray) {
+    let newArray = [];
+
+    for (let cost of expenseArray) {
+        if (cost >= 20) {
+            newArray.push(cost);
+        }
+    }
+    return newArray;
+}
+
+let filteredExpenses = onlyOverTwentyDollars(expenses);
+
+// How to filter out certain items.
+
+//  #1. Write the helper function that knows if one, single
+// element should be allowed or not.
+// "Gandolf function"
+
+function isOverTwentyDollars(cost) {
+    if (cost >= 20) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// #2. Declare a variable to hold our new, filtered array.
+let highExpenses = expenses.filter(isOverTwentyDollars);
+console.log(highExpenses);
+
+
+
+
