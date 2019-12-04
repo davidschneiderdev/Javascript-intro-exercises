@@ -4,7 +4,7 @@ function hello(name) {
     if (name) {
         console.log(`Hello ${name}`);
     } else {
-        console.log(`Hello World!`)
+        console.log(`Hello World!`);
     }
 }
 
@@ -24,18 +24,17 @@ function madlib(name, subject) {
 function tipAmount(bill, service) {
     let servicePercent;
     if (service == "good") {
-        servicePercent = .2;
+        servicePercent = 0.2;
     } else if (service == "fair") {
-        servicePercent = .15;
+        servicePercent = 0.15;
     } else {
-        servicePercent = .10
+        servicePercent = 0.1;
     }
     tipTotal = bill * servicePercent;
     return tipTotal;
 }
 
 // console.log(tipAmount(20, "bad"));
-
 
 function totalAmount(bill, service) {
     totalAmount = bill + tipAmount(bill, service);
@@ -80,7 +79,7 @@ function printBox(size, height) {
                 row.push("*");
             }
             console.log(row.join(""));
-        //Prints middle rows
+            //Prints middle rows
         } else {
             let row = [];
             for (let i = 0; i < size; i++) {
@@ -103,7 +102,7 @@ function printBox(size, height) {
 //     for (let i = 0; i < size; i++) {
 //         borderRow.push("*");
 //     }
-//     //Prints middle rows      
+//     //Prints middle rows
 //     let Middlerow = [];
 //     for (let i = 0; i < size; i++) {
 //         if (i === 0 || i === size - 1) {
@@ -126,14 +125,63 @@ function printBanner(text) {
 // printBanner("Welcome to DigitalCrafts");
 
 function factors(num) {
-    let primesList = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109,113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199];
+    let primesList = [
+        2,
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61,
+        67,
+        71,
+        73,
+        79,
+        83,
+        89,
+        97,
+        101,
+        103,
+        107,
+        109,
+        113,
+        127,
+        131,
+        137,
+        139,
+        149,
+        151,
+        157,
+        163,
+        167,
+        173,
+        179,
+        181,
+        191,
+        193,
+        197,
+        199
+    ];
     let remainder = num;
     let factorList = [];
     for (let i = 0; i < num; i++) {
-        if (remainder == 1) {break};
+        if (remainder == 1) {
+            break;
+        }
         for (prime of primesList) {
             if (remainder === prime) {
-                remainder = remainder/prime;
+                remainder = remainder / prime;
                 factorList.push(prime);
                 break;
             } else if (remainder % prime === 0) {
@@ -150,9 +198,36 @@ function factors(num) {
 // factors(35);
 
 function cipher(string, offset) {
-    const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    const alphabet = [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "q",
+        "r",
+        "s",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z"
+    ];
     const alphabet_index_len = 25;
-    let ciphered_list = string.split("")
+    let ciphered_list = string.split("");
     let deciphered_list = [];
     let past_range_index = offset - 1;
 
@@ -166,7 +241,8 @@ function cipher(string, offset) {
             index = alphabet.indexOf(letter);
             shift_position = index + offset;
             if (shift_position > alphabet_index_len) {
-                shift_position = past_range_index - (alphabet_index_len - index);
+                shift_position =
+                    past_range_index - (alphabet_index_len - index);
             }
             shifted_letter = alphabet[shift_position];
             deciphered_list.push(shifted_letter);
@@ -179,8 +255,7 @@ function cipher(string, offset) {
 // cipher("Genius without education is like silver in the mine", 13);
 
 function leetspeak(string) {
-
-    var chars = {'E':'3', 'G':'6', 'I':'1', 'O':'0', 'S':'5', 'T':'7'};
+    var chars = { E: "3", G: "6", I: "1", O: "0", S: "5", T: "7" };
     var s = string.toUpperCase();
 
     s = s.replace(/[EGIOST]/g, x => chars[x]);
@@ -192,14 +267,19 @@ function leetspeak(string) {
 function longVowels(string) {
     // var chars = {'ee':'eeeee', 'oo':'ooooo'};
     var s = string;
-    s = s.replace(/ee/g, 'eeeee').replace(/oo/g, 'ooooo');
+    s = s.replace(/ee/g, "eeeee").replace(/oo/g, "ooooo");
     console.log(s);
 }
 
 // longVowels('Good');
 
 function positiveNumbers(array) {
-    newArray = []; for (num of array) {if (num > -1) {newArray.push(num);}}
+    newArray = [];
+    for (num of array) {
+        if (num > -1) {
+            newArray.push(num);
+        }
+    }
     return newArray;
 }
 
@@ -207,17 +287,17 @@ function positiveNumbers(array) {
 
 function rockPaperScissors(player1, player2) {
     const weapons = {
-        Rock: {weakTo: 'Paper', strongTo: 'Scissors'},
-        Paper: {weakTo: 'Scissors', strongTo: 'Rock'},
-        Scissors: {weakTo: 'Rock', strongTo: 'Paper'}
-    }
+        Rock: { weakTo: "Paper", strongTo: "Scissors" },
+        Paper: { weakTo: "Scissors", strongTo: "Rock" },
+        Scissors: { weakTo: "Rock", strongTo: "Paper" }
+    };
 
     if (weapons[player1].strongTo === weapons[player2].weakTo) {
-        console.log('Player 1');
+        console.log("Player 1");
     } else if (weapons[player1].weakTo === weapons[player2].strongTo) {
-        console.log('Player 2');
+        console.log("Player 2");
     } else {
-        console.log('Draw');
+        console.log("Draw");
     }
 }
 
@@ -225,10 +305,10 @@ function rockPaperScissors(player1, player2) {
 
 function ticTacToe(playerSymbol, moveCoordX, moveCoordY) {
     let board = {
-        'Y1': {'R1': 'null', 'R2': 'null', 'R3': 'null'},
-        'Y2': {'R1': 'null', 'R2': 'null', 'R3': 'null'},
-        'Y1': {'R1': 'null', 'R2': 'null', 'R3': 'null'}
-    }
+        Y1: { R1: "null", R2: "null", R3: "null" },
+        Y2: { R1: "null", R2: "null", R3: "null" },
+        Y1: { R1: "null", R2: "null", R3: "null" }
+    };
     // board.'Y1'.
     console.log(board);
 }
@@ -247,7 +327,7 @@ function ticTacToe(playerSymbol, moveCoordX, moveCoordY) {
 const expenses = [
     1234.56,
     89.42,
-    9797.10,
+    9797.1,
     88.88,
     3.14,
     30.99,
@@ -256,9 +336,9 @@ const expenses = [
     42.39,
     19.24,
     8.49,
-    21.30,
-    1.00,
-    30.00
+    21.3,
+    1.0,
+    30.0
 ];
 
 function sumExpenses(array) {
@@ -268,15 +348,14 @@ function sumExpenses(array) {
     }
     return sum;
 }
- 
+
 // console.log(sumExpenses(expenses));
 
-function sumAboveTwenty(array ) {
+function sumAboveTwenty(array) {
     let sum = 0;
-    for (let num of array){
+    for (let num of array) {
         if (num > 20) {
-
-             sum += num
+            sum += num;
         }
     }
     return sum;
@@ -344,7 +423,3 @@ function isOverTwentyDollars(cost) {
 // #2. Declare a variable to hold our new, filtered array.
 let highExpenses = expenses.filter(isOverTwentyDollars);
 console.log(highExpenses);
-
-
-
-
